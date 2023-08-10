@@ -12,7 +12,19 @@ module.exports = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      colors:{
+        'primary':'#fff',
+        'secondary':'#5347F6',
+        'red':'#D75F46',
+        'green':'#51D655',
+      },
+      fontFamily: {
+        sans: ['var(--font-roobert)'],
+
+      }
     },
   },
-  plugins: [],
+  plugins: [
+    require('tailwind-clip-path'),
+  ],
 }
