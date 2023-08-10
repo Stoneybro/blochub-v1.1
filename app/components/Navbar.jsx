@@ -19,7 +19,6 @@ const Nav = () => {
         <div className="absolute left-0 top-full">REGISTER</div>
         </div>
 
-
       </button></div>
             </div>
         </div>
