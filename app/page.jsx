@@ -1,11 +1,11 @@
 
 'use client'
 
-import Nav from './components/Nav'
+import Nav from './components/Navbar'
 import Hero from './components/Hero'
 import About from './components/About'
 import Services from './components/Services'
-import Slider from './components/Slider'
+import Slider from './components/Slider1'
 import Events from './components/Events'
 import Resources from './components/Resources'
 import Strips from './components/Strips'
