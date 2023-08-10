@@ -1,6 +1,6 @@
 'use client'
 import React from 'react'
-import { useScroll,useTransform,motion,useSpring } from 'framer-motion'
+
 const Slider = () => {
     const {scrollYProgress}=useScroll()
     
