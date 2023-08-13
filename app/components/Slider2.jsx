@@ -25,7 +25,6 @@ export default function Slider2() {
   const firstsvg= useRef(null)
   const secondsvg=useRef(null)
   const thirdsvg=useRef(null)
-
   let xPercent=0
   let direction=1
   useEffect(()=>{
@@ -45,7 +44,7 @@ export default function Slider2() {
   }
 
   return (
-    <div className='   overflow-hidden'>
+    <div className='   overflow-hidden' >
       <div className="bg-black pt-48 pb-36 flex"  >
       <div className="" ref={firstsvg}>{svg}</div>
     <div className="" ref={secondsvg}>{svg}</div>
