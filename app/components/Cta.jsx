@@ -7,7 +7,7 @@ const Cta = () => {
   </svg>
   return (
     <div className=" bg-black text-white   " data-scroll-section>
-        <div className="w-[1110px] mx-auto flex flex-col items-start">
+        <div className="lg:w-[1110px] mx-auto flex flex-col items-start">
             <div className=" text-[5.3rem] font-medium">Ready to Shape the Future?</div>
             <div className="text-2xl mb-8">Join Blochub today and be part of the decentralized revolution!</div>
 

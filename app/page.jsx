@@ -23,16 +23,17 @@ export default function Home() {
     <div className='' >
 
       <Nav />
-     <Hero />
-     <About />
-     <Services />
+      <Hero />
+      <About />
+      <Services />
+     {/* 
     <Slider />
     <Events />
     <Resources />
     <Strips />
     <Cta />
     <Slider2 />
-    <Footer /> 
+    <Footer />  */}
 
     </div>
   )

@@ -13,7 +13,7 @@ const Events = () => {
   return (
     <div className="text-white bg-black pt-24 h-[142.5vh] flex gap-16 flex-col" data-scroll-section>
 
-        <div className="flex flex-col w-[1110px] mx-auto ">
+        <div className="flex flex-col lg:w-[1110px] mx-auto ">
             <div className=" text-[5.3rem] font-medium">
             Events
             </div>

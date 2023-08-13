@@ -3,7 +3,7 @@ import Button from './button'
 const Resources = () => {
   return (
     <div className="bg-black text-white pt-24 flex flex-col gap-12" data-scroll-section>
-        <div className="flex flex-col w-[1110px] mx-auto ">
+        <div className="flex flex-col lg:w-[1110px] mx-auto ">
             <div className=" text-[5.3rem] font-medium">
             Resources
             </div>
