@@ -26,12 +26,10 @@ export default function Slider2() {
   const secondsvg=useRef(null)
   const thirdsvg=useRef(null)
   const slider=useRef(null)
-  const slidecontainer=useRef(null)
   let xPercent=0
   let direction=1
   useEffect(()=>{
     requestAnimationFrame(animation)
-    gsap.registerPlugin(ScrollTrigger)
   },[])
   const animation=()=>{
     if (xPercent <= -100) {
@@ -45,19 +43,10 @@ export default function Slider2() {
     xPercent+=0.25*direction
     requestAnimationFrame(animation)
   }
-  gsap.to(slider.current,{
-    scrollTrigger:{
-      trigger:document.documentElement,
-      start:0,
-      end:window.innerHeight,
-      scrub:true,
-      onUpdate:e=>direction=e.direction*-1
-    },x:'-=300px'
-  }
-    )
+
   return (
     <div className='   overflow-hidden' ref={slidecontainer}>
-      <div className="bg-black pt-48 pb-36 flex" ref={slider} >
+      <div className="bg-black pt-48 pb-36 flex"  >
       <div className="" ref={firstsvg}>{svg}</div>
     <div className="" ref={secondsvg}>{svg}</div>
     <div className="" ref={thirdsvg}>{svg}</div>
