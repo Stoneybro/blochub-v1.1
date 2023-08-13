@@ -1,5 +1,7 @@
-import React from 'react'
-
+'use client'
+import React, { useEffect, useRef } from 'react'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 export default function Slider2() {
   const svg=    <svg width="820" height="130" viewBox="0 0 1531 240" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -19,11 +21,47 @@ export default function Slider2() {
   </clipPath>
   </defs>
   </svg>
+
+  const firstsvg= useRef(null)
+  const secondsvg=useRef(null)
+  const thirdsvg=useRef(null)
+  const slider=useRef(null)
+  const slidecontainer=useRef(null)
+  let xPercent=0
+  let direction=1
+  useEffect(()=>{
+    requestAnimationFrame(animation)
+    gsap.registerPlugin(ScrollTrigger)
+  },[])
+  const animation=()=>{
+    if (xPercent <= -100) {
+      xPercent = 0;
+    }else if (xPercent > 0) {
+      xPercent=-100
+    }
+    gsap.set(firstsvg.current,{xPercent:xPercent})
+    gsap.set(secondsvg.current,{xPercent:xPercent})
+    gsap.set(thirdsvg.current,{xPercent:xPercent})
+    xPercent+=0.25*direction
+    requestAnimationFrame(animation)
+  }
+  gsap.to(slider.current,{
+    scrollTrigger:{
+      trigger:document.documentElement,
+      start:0,
+      end:window.innerHeight,
+      scrub:true,
+      onUpdate:e=>direction=e.direction*-1
+    },x:'-=300px'
+  }
+    )
   return (
-    <div className=' bg-black pt-48 pb-36 flex gap-4' data-scroll-section>
-      {svg}
-    
-    
+    <div className='   overflow-hidden' ref={slidecontainer}>
+      <div className="bg-black pt-48 pb-36 flex" ref={slider} >
+      <div className="" ref={firstsvg}>{svg}</div>
+    <div className="" ref={secondsvg}>{svg}</div>
+    <div className="" ref={thirdsvg}>{svg}</div>
+    </div>
         </div>
   )
 }
