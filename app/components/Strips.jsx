@@ -51,3 +51,4 @@ const Strips = () => {
 }
 
 export default Strips
+

@@ -10,7 +10,7 @@ const About = () => {
                     <div className="lg:text-[1.8rem] text-[1.3rem] leading-8 lg:w-[950px] font-medium"> <div className="mb-4">We are on a mission to shape the future of web3 development through collaboration, learning, and innovation. </div> 
                     As an inclusive and dynamic community, we bring together blockchain enthusiasts and developers from all walks of life to create groundbreaking solutions that redefine the decentralized landscape.</div>
                     </div>
-                <div className="relative flex-1 flex justify-between self-center lg:self-none">
+                <div className="relative flex-1 flex justify-between self-center lg:self-auto">
                     <div className="flex items-end">
                     <div className="hidden md:flex gap-4 items-center">
                         <div className="text-[1.7rem] font-semibold ">Unlock the future with BlocHub</div>
