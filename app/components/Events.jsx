@@ -24,8 +24,8 @@ const Events = () => {
 
 
         {/* second section */}
-        <div className=" h-[57%] bg-black   ">
-        <div className="flex w-[450vw] lg:w-[150vw] h-full ">
+        <div className=" h-[42.5%] lg:h-[57%] bg-black overflow-hidden  ">
+        <div className="flex w-[450vw] lg:w-[150vw] h-full overflow-hidden">
 
 
           <div className=" px-6 py-5 z-0 border-white flex flex-col justify-between border-4 border-r-0 overflow-hidden h-full w-[90vw] lg:w-[calc(150vw/5)] relative ">
