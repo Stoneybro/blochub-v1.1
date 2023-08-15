@@ -7,7 +7,7 @@ const Footer = () => {
   return (
     <div className="bg-black" data-scroll-section>
 
-    <div className="flex gap-8 justify-between py-8 px-6 lg:px-0   text-white text-xl lg:w-[1110px] mx-auto">
+    <div className="flex gap-8 justify-between lg:justify-normal py-8 px-6 lg:px-0   text-white text-xl lg:w-[1110px] mx-auto">
        
         <button      
     className={` overflow-hidden   flex  items-center  group/perr`}>
