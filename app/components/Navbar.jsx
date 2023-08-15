@@ -14,7 +14,7 @@ const Nav = () => {
             <div>
     <button      
     className={`border rounded-full  border-white  text-white mix-blend-difference  font-light w-[119px] h-[33.5px] overflow-hidden   flex flex-col items-center justify-center group/perr`}>
-        <div className="relative z-10 group-hover/perr:-translate-y-full transition-all duration-200 ease-out">
+        <div className="relative z-10 lg:group-hover/perr:-translate-y-full transition-all duration-200 ease-out">
         <div className="">REGISTER</div>
         <div className="absolute left-0 top-full">REGISTER</div>
         </div>

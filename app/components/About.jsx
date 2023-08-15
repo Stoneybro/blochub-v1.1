@@ -3,7 +3,7 @@ import pic from '../../public/pic.webp'
 import Image from 'next/image'
 const About = () => {
   return (
-    <div className=' z-50 bg-white text-black py-[3.2rem] z-10' data-scroll-section>
+    <div className=' z-50 bg-white text-black py-[3.2rem] ' data-scroll-section>
         <div className="lg:w-[1200px] mx-auto flex flex-col gap-28 lg:gap-4">
                 <div className="flex-1 px-4 lg:px-12">
                     <div className="text-[3rem] leading-0 lg:text-[5.3rem] font-medium">At BlocHub,</div>

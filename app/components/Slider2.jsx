@@ -45,8 +45,8 @@ export default function Slider2() {
 
   return (
 
-        <div className='overflow-hidden' >
-        <div className="bg-black pt-24 lg:pt-48 pb-24 lg:pb-36 flex w-[70rem] lg:w-[200vw]"  >
+        <div className='overflow-hidden pt-24' >
+        <div className="bg-black  pb-24 lg:pb-36 flex w-[70rem] lg:w-[200vw]"  >
         <div className="w-full" ref={firstsvg} ><Image src={logo}  alt='slider' className=' w-[27rem] xl:w-[250rem] lg:w-[200rem] md:w-[200rem]'  />
   </div>
         <div className="w-full" ref={secondsvg} ><Image src={logo}  alt='slider' className=' w-[27rem] xl:w-[250rem] lg:w-[200rem] md:w-[200rem]'  />

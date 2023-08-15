@@ -2,7 +2,7 @@ import React from 'react'
 
 const Services = () => {
   return (
-    <div className="bg-black py-28  text-white" data-scroll-section>
+    <div className="bg-black pt-28 pb-16  text-white" data-scroll-section>
         <div className="gap-24 lg:gap-8 flex flex-col lg:w-[1110px] mx-auto lg:px-0 px-4">
    <div className="">
    <div className="flex flex-col  relative h-[18rem] lg:w-[850px] z-[0] lg:gap-4 ">

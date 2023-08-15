@@ -7,14 +7,14 @@ const Cta = () => {
   </svg>
   return (
     <div className=" bg-black text-white  px-4 lg:px-0 " data-scroll-section>
-        <div className="lg:w-[1110px] mx-auto flex flex-col items-start gap-6 lg:gap-0">
+        <div className="lg:w-[1110px] mx-auto flex flex-col items-start gap-4 lg:gap-0">
             <div className="text-[4rem] lg:text-[5.3rem] font-medium leading-[1] lg:leading-normal">Ready to Shape the Future?</div>
             <div className="lg:text-2xl text-xl mb-8">Join Blochub today and be part of the decentralized revolution!</div>
 
             <div>
     <button      
     className={`border rounded-full  border-white  text-white mix-blend-difference  font-light w-[275.396px] h-[67.396px] overflow-hidden   flex flex-col items-center justify-center group/perr`}>
-        <div className="relative z-10 group-hover/perr:-translate-y-[200%] transition-all duration-200 ease-out">
+        <div className="relative z-10 lg:group-hover/perr:-translate-y-[200%] transition-all duration-200 ease-out">
         <div className="">{svg}</div>
         <div className="absolute left-0 top-[200%]">{svg}</div>
         </div>
