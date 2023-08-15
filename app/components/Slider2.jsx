@@ -1,8 +1,8 @@
 'use client'
 import React, { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-
+import Image from 'next/image'
+import logo from '../../public/logo.svg'
 export default function Slider2() {
   const svg=    <svg width="820" height="130" viewBox="0 0 1531 240" fill="none" xmlns="http://www.w3.org/2000/svg">
   <g clip-path="url(#clip0_31_135)">
@@ -44,18 +44,28 @@ export default function Slider2() {
   }
 
   return (
-    <div className='   overflow-hidden' >
-      <div className="bg-black pt-48 pb-36 flex"  >
-      <div className="" ref={firstsvg}>{svg}</div>
-    <div className="" ref={secondsvg}>{svg}</div>
-    <div className="" ref={thirdsvg}>{svg}</div>
-    </div>
+
+        <div className='' >
+        <div className="bg-black pt-24 lg:pt-48 pb-24 lg:pb-36 flex w-[70rem] lg:w-[200vw]"  >
+        <div className="w-full" ref={firstsvg} ><Image src={logo}  alt='slider' className=' w-[27rem] xl:w-[250rem] lg:w-[200rem] md:w-[200rem]'  />
+  </div>
+        <div className="w-full" ref={secondsvg} ><Image src={logo}  alt='slider' className=' w-[27rem] xl:w-[250rem] lg:w-[200rem] md:w-[200rem]'  />
         </div>
+        <div className="w-full" ref={thirdsvg}><Image src={logo}  alt='slider' className=' w-[27rem] xl:w-[250rem] lg:w-[200rem] md:w-[200rem]'  />
+        </div>
+      </div>
+          </div>
   )
 }
 
 
-
+// <div className='   overflow-hidden' >
+// <div className="bg-black pt-12 lg:pt-48 pb-36 flex"  >
+// <div className="" ref={firstsvg}>{svg}</div>
+// <div className="" ref={secondsvg}>{svg}</div>
+// <div className="" ref={thirdsvg}>{svg}</div>
+// </div>
+//   </div>
 
 
 

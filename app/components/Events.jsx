@@ -11,31 +11,31 @@ import pic5 from '../../public/pic5.webp'
 
 const Events = () => {
   return (
-    <div className="text-white bg-black pt-24 h-[142.5vh] flex gap-16 flex-col" data-scroll-section>
+    <div className="text-white bg-black pt-12 lg:pt-24 h-[142.5vh] flex gap-10 lg:gap-16 flex-col" data-scroll-section>
 
-        <div className="flex flex-col lg:w-[1110px] mx-auto ">
-            <div className=" text-[5.3rem] font-medium">
+        <div className="flex flex-col lg:w-[1110px] mx-auto px-4">
+            <div className=" text-[5.3rem] font-medium ">
             Events
             </div>
-            <div className=" self-end w-[480px] text-xl">
+            <div className=" self-end lg:w-[480px] text-xl ml-10 lg:mx-0">
             Our virtual events feature the top talent in the blockchain and web3 development and design space
             </div>
         </div>
 
 
         {/* second section */}
-        <div className=" h-[57%] bg-black overflow-hidden  ">
-        <div className="flex w-[150vw] h-full overflow-hidden">
+        <div className=" h-[57%] bg-black   ">
+        <div className="flex w-[450vw] lg:w-[150vw] h-full ">
 
 
-          <div className=" px-6 py-5 z-0 border-white flex flex-col justify-between border-4 border-r-0 overflow-hidden h-full w-[calc(150vw/5)] relative ">
+          <div className=" px-6 py-5 z-0 border-white flex flex-col justify-between border-4 border-r-0 overflow-hidden h-full w-[90vw] lg:w-[calc(150vw/5)] relative ">
 
             <div className="flex justify-between">
               <div className="leading-2">DAVID HIN <br /> <div className="text-sm -m-1">18 AUG 23</div> </div>
               <div className=" border-white border-2  px-4 py-1 rounded-ss-[1rem]">Design</div>
             </div>
 
-            <div className="h-full w-full z-[-1]  absolute top-0 left-0 grayscale   hover:grayscale-0   group/large"><Image src={pic1}  className='w-full object-cover h-full scale-105 transition-all duration-[2500ms] ease-out  hover:scale-100 ' /></div>
+            <div className="h-full w-full z-[-1]  absolute top-0 left-0 grayscale   hover:grayscale-0   group/large"><Image src={pic1} alt='pic1'  className='w-full object-cover h-full scale-105 transition-all duration-[2500ms] ease-out  hover:scale-100 ' /></div>
 
             <div className="flex justify-between">
             <div className="text-3xl font-semibold">Designing for web3</div>
@@ -49,7 +49,7 @@ const Events = () => {
 
 
 
-          <div className=" px-6 py-5 z-0 border-white border-4 border-r-0 overflow-hidden h-full w-[calc(150vw/5)] relative flex flex-col justify-between">
+          <div className=" px-6 py-5 z-0 border-white border-4 border-r-0 overflow-hidden h-full w-[90vw] lg:w-[calc(150vw/5)] relative flex flex-col justify-between">
 
 
 
@@ -72,7 +72,7 @@ const Events = () => {
           </div>
 
 
-          <div className=" px-6 py-5 z-0 border-white flex flex-col justify-between border-4 border-r-0 overflow-hidden h-full w-[calc(150vw/5)] relative">
+          <div className=" px-6 py-5 z-0 border-white flex flex-col justify-between border-4 border-r-0 overflow-hidden h-full w-[90vw] lg:w-[calc(150vw/5)] relative">
 
             <div className="flex justify-between">
               <div className="leading-2">DAVID HIN <br /> <div className="text-sm -m-1">18 AUG 23</div> </div>
@@ -93,7 +93,7 @@ const Events = () => {
 
 
 
-          <div className=" px-6 py-5 z-0 border-white flex flex-col justify-between border-4 border-r-0 overflow-hidden h-full w-[calc(150vw/5)] relative">
+          <div className=" px-6 py-5 z-0 border-white flex flex-col justify-between border-4 border-r-0 overflow-hidden h-full w-[90vw] lg:w-[calc(150vw/5)] relative">
 
             <div className="flex justify-between">
               <div className="leading-2">DAVID HIN <br /> <div className="text-sm -m-1">18 AUG 23</div> </div>
@@ -115,7 +115,7 @@ const Events = () => {
 
 
 
-          <div className=" px-6 py-5 z-0 border-white flex flex-col justify-between border-4 border-r-0 overflow-hidden h-full w-[calc(150vw/5)] relative">
+          <div className=" px-6 py-5 z-0 border-white flex flex-col justify-between border-4 border-r-0 overflow-hidden h-full w-[90vw] lg:w-[calc(150vw/5)] relative">
 
             <div className="flex justify-between">
               <div className="leading-2">DAVID HIN <br /> <div className="text-sm -m-1">18 AUG 23</div> </div>

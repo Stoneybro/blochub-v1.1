@@ -6,10 +6,10 @@ const Cta = () => {
   <path d="M188.81 34.7021L221.31 2.20215M221.31 2.20215V33.4021M221.31 2.20215H190.11" stroke="white" stroke-width="3.5" stroke-linecap="square"/>
   </svg>
   return (
-    <div className=" bg-black text-white   " data-scroll-section>
-        <div className="lg:w-[1110px] mx-auto flex flex-col items-start">
-            <div className=" text-[5.3rem] font-medium">Ready to Shape the Future?</div>
-            <div className="text-2xl mb-8">Join Blochub today and be part of the decentralized revolution!</div>
+    <div className=" bg-black text-white  px-4 lg:px-0 " data-scroll-section>
+        <div className="lg:w-[1110px] mx-auto flex flex-col items-start gap-6 lg:gap-0">
+            <div className="text-[4rem] lg:text-[5.3rem] font-medium leading-[1] lg:leading-normal">Ready to Shape the Future?</div>
+            <div className="lg:text-2xl text-xl mb-8">Join Blochub today and be part of the decentralized revolution!</div>
 
             <div>
     <button      
