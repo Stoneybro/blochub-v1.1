@@ -11,7 +11,7 @@ import pic5 from '../../public/pic5.webp'
 
 const Events = () => {
   return (
-    <div className="text-white bg-black pt-12 pb-20 lg:pb-0 lg:pt-24 h-[90vh] lg:h-[142.5vh] flex gap-10 lg:gap-16 flex-col" data-scroll-section>
+    <div className="text-white bg-black pt-12 pb-20 lg:pb-0 lg:pt-24 h-[120vh] lg:h-[142.5vh] flex gap-10 lg:gap-16 flex-col" data-scroll-section>
 
         <div className="flex flex-col lg:w-[1110px] mx-auto px-4">
             <div className=" text-[5.3rem] font-medium ">
