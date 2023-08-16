@@ -34,7 +34,7 @@ const About = () => {
         trigger:container.current,
         start:'15% 70%',
         end:'80% 60%',
-        markers:true
+
       }
     })
   },[])
