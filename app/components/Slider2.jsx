@@ -2,8 +2,10 @@
 import React, { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import Image from 'next/image'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import logo from '../../public/logo.svg'
 export default function Slider2() {
+
   const svg=    <svg width="820" height="130" viewBox="0 0 1531 240" fill="none" xmlns="http://www.w3.org/2000/svg">
   <g clip-path="url(#clip0_31_135)">
   <path d="M403.723 138.622C411.936 142.821 418.838 149.216 423.67 157.104C428.597 165.25 431.086 174.651 430.84 184.182C431.051 191.674 429.658 199.124 426.756 206.028C423.854 212.932 419.51 219.128 414.018 224.197C402.831 234.874 387.89 240.657 372.47 240.277H289.19V44.821H366.403C381.374 44.4064 395.916 49.8766 406.94 60.0694C412.242 64.9837 416.437 70.9814 419.243 77.66C422.049 84.3386 423.402 91.5435 423.21 98.791C423.49 106.532 421.857 114.223 418.456 121.174C415.055 128.125 409.993 134.119 403.723 138.622ZM372.562 209.781C376.005 209.8 379.416 209.104 382.579 207.737C385.743 206.369 388.591 204.359 390.946 201.833C393.44 199.272 395.399 196.237 396.709 192.904C398.019 189.571 398.654 186.009 398.575 182.426C398.643 175.205 395.906 168.242 390.946 163.019C388.588 160.497 385.739 158.49 382.576 157.123C379.413 155.756 376.004 155.057 372.562 155.071H321.178V209.873L372.562 209.781ZM366.587 74.7633H321.27V126.146H366.495C369.8 126.214 373.083 125.592 376.136 124.319C379.19 123.047 381.948 121.151 384.236 118.752C386.632 116.33 388.512 113.441 389.76 110.263C391.009 107.085 391.6 103.685 391.497 100.27C391.617 96.8603 391.043 93.4623 389.81 90.284C388.578 87.1057 386.712 84.2142 384.328 81.7868C381.999 79.4681 379.225 77.6498 376.175 76.4424C373.125 75.235 369.863 74.6637 366.587 74.7633Z" fill="white"/>
@@ -21,7 +23,7 @@ export default function Slider2() {
   </clipPath>
   </defs>
   </svg>
-
+    const slider=useRef(null)
   const firstsvg= useRef(null)
   const secondsvg=useRef(null)
   const thirdsvg=useRef(null)
@@ -29,6 +31,20 @@ export default function Slider2() {
   let direction=1
   useEffect(()=>{
     requestAnimationFrame(animation)
+
+
+  },[])
+  useEffect(()=>{
+    gsap.registerPlugin(ScrollTrigger)
+    // gsap.to(slider.current,{
+    //   ScrollTrigger:{
+    //     trigger:slider.current,
+    //     scrub:true,
+    //     // eslint-disable-next-line react-hooks/exhaustive-deps
+    //     onUpdate:e=>direction=direction*-1
+    //   },
+
+    // })
   },[])
   const animation=()=>{
     if (xPercent <= -100) {
@@ -45,7 +61,7 @@ export default function Slider2() {
 
   return (
 
-        <div className='overflow-hidden pt-24' >
+        <div className='overflow-hidden pt-24' ref={slider}>
         <div className="bg-black  pb-24 lg:pb-36 flex w-[70rem] lg:w-[200vw]"  >
         <div className="w-full" ref={firstsvg} ><Image src={logo}  alt='slider' className=' w-[27rem] xl:w-[250rem] lg:w-[200rem] md:w-[200rem]'  />
   </div>
