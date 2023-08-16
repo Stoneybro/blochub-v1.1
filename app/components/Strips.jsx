@@ -1,7 +1,7 @@
 'use client'
 import React, { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
-import { delay } from 'framer-motion'
+
 const Strips = () => {
         const firststrip=useRef(null)
         const secondstrip=useRef(null)
