@@ -12,15 +12,19 @@ const About = () => {
     let body=[]
     phrase.split(" ").forEach((word,index)=>{
       const letters=splitletters(word)
-      body.push(<p key={index} ref={e=>refs.current.push(e)} className='mr-2 text-[#B0B0B0]'>{letters}</p>)
+
+        body.push(<p key={index} className='mr-2 '>{letters}</p>)
+
+    
     })
     return body
   }
   const splitletters=(word)=>{
     let letters=[]
-    word.split(" ").forEach((word,index)=>{
-      letters.push(<span key={`letter_${index}`} >{word}</span>)
+    word.split("").forEach((x,index)=>{
+      letters.push(<span ref={e=>refs.current.push(e)}  key={`letter_${index}`} >{x}</span>)
     })
+
     return letters
   }
   useEffect(()=>{
@@ -30,7 +34,7 @@ const About = () => {
       ease:'none',
       stagger:1,
       scrollTrigger:{
-        scrub:0.25,
+        scrub:true,
         trigger:container.current,
         start:'15% 70%',
         end:'80% 60%',
@@ -43,7 +47,7 @@ const About = () => {
         <div className="lg:w-[1200px] mx-auto flex flex-col gap-28 lg:gap-4">
                 <div className="flex-1 px-4 lg:px-12">
                     <div className="text-[3rem] leading-0 lg:text-[5.3rem] font-medium">At BlocHub,</div>
-                    <div className="lg:text-[1.8rem] text-[1.3rem] leading-8 lg:w-[950px] font-medium flex flex-wrap text-[#B0B0B0]"> 
+                    <div className="lg:text-[1.8rem] text-[1.3rem] leading-8 lg:w-[950px] font-medium text-[#B0B0B0] flex flex-wrap"> 
                     {splitwords()}
                     </div>
                     </div>
