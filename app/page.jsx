@@ -12,19 +12,18 @@ import Strips from './components/Strips'
 import Cta from './components/Cta'
 import Slider2 from './components/Slider2'
 import Footer from './components/Footer'
-
-
+import Mouse from './components/mouse'
+import MyReactComponent from './components/text'
 
 
 export default function Home() {
 
   return (
     
-    <div className='' >
-
-      <Nav />
+    <div className='h-screen' >
+   <Mouse />
+   <Nav />
       <Hero />
-      <div className="bg-black">
       <About />
       <Services />
       <Slider />
@@ -34,9 +33,9 @@ export default function Home() {
       <Cta />
       <Slider2 />
       <Footer /> 
-      </div>
      {/* 
-    
+       <MyReactComponent />
+
 
 
 

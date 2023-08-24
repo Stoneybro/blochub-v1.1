@@ -25,3 +25,13 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+body>div:hover>#mouse{
+  opacity: 1;
+}
+body,button{
+ cursor: none;
+}
+
+
+
+
