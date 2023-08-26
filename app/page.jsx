@@ -21,7 +21,7 @@ export default function Home() {
   return (
     
     <div className='h-screen' >
-   <Mouse />
+           <Mouse />
    <Nav />
       <Hero />
       <About />
@@ -34,8 +34,9 @@ export default function Home() {
       <Slider2 />
       <Footer /> 
      {/* 
-       <MyReactComponent />
 
+
+    <MyReactComponent />
 
 
 

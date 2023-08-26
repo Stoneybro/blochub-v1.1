@@ -16,22 +16,103 @@
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
+
 body>div:hover>#mouse{
   opacity: 1;
 }
-body,button{
+/* body,button{
  cursor: none;
+} */
+
+
+
+*,
+*::after,
+*::before {
+	box-sizing: border-box;
 }
 
 
 
 
+
+body {
+
+
+	background-color: black;
+	-webkit-font-smoothing: antialiased;
+
+
+}
+
+
+
+/* Make sure 3 items are visible in the viewport by setting suitable font size. */
+
+.marquee, .-marquee {
+	position: absolute;
+	top: 0;
+	left: 0;
+	
+	overflow: hidden;
+	pointer-events: none;
+  -webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	counter-reset: menu;
+
+}
+
+.marquee__inner,.-marquee__inner {
+	justify-content: space-between;
+	width: max-content;
+	display: flex;
+	position: relative;
+	/* transform: translate3d(calc(-25% + 20vw), 0, 0); */
+	animation: marquee 5s linear infinite;
+	animation-play-state: paused;
+	opacity: 0;
+	transition: opacity 0.1s;
+}
+.-marquee__inner{
+	animation: -marquee 5s linear infinite;
+}
+
+.marquee .marquee__inner,.-marquee .-marquee__inner {
+	animation-play-state: running;
+	opacity: 1;
+	transition-duration: 0.4s;
+}
+
+.marquee span,.-marquee span {
+  text-align: center;
+	white-space: nowrap;
+
+
+	font-weight: 900;
+	line-height: 1.15;
+  font-style: italic;
+
+}
+
+@keyframes marquee {
+	0% {
+		transform: translate3d(calc(0% + 50vw), 0, 0);
+	}
+
+	100% {
+		transform: translate3d(calc(-43% + 50vw), 0, 0);
+	}
+}
+
+@keyframes -marquee {
+	0% {
+		transform: translate3d(calc(-43% + 50vw), 0, 0);
+	}
+
+	100% {
+		transform: translate3d(calc(0% + 50vw), 0, 0);
+	}
+}
