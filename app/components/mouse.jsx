@@ -20,7 +20,7 @@ const Mouse = () => {
     },[])
 
   return (
-    <div  ref={mouse} id='mouse' className={` hidden lg:block text-black z-50 pointer-events-none opacity-0 ${!event && 'h-6 w-6 mix-blend-difference'}  fixed rounded-full  bg-white left-0 top-0  mouse   `}>
+    <div  ref={mouse} id='mouse' className={` hidden lg:block text-black z-50 pointer-events-none opacity-0 ${!event && 'h-6 w-6 mix-blend-difference'}  fixed rounded-full  bg-white left-0 top-0  mouse transition-all ease-linear duration-75   `}>
        <div className={`${event?'flex':'hidden'} gap-2 items-center py-2 px-4 `} > <BiLeftArrow /> <div>Drag</div><BiRightArrow /></div>
     </div>
   )

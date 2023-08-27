@@ -89,8 +89,6 @@ body {
 .marquee span,.-marquee span {
   text-align: center;
 	white-space: nowrap;
-
-
 	font-weight: 900;
 	line-height: 1.15;
   font-style: italic;
