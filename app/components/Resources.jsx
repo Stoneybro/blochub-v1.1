@@ -2,7 +2,7 @@ import React from 'react'
 import Button from './button'
 const Resources = () => {
   return (
-    <div className="bg-black text-white flex flex-col gap-12" data-scroll-section>
+    <div className="bg-black text-white flex flex-col gap-12" data-scroll-section id='resources'>
         <div className="flex flex-col lg:w-[1110px] mx-auto px-4 lg:px-0 ">
             <div className="lg:text-[5.3rem] text-[4rem] font-medium">
             Resources

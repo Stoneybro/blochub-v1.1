@@ -26,7 +26,7 @@ const Events = () => {
   
 </svg>
   return (
-    <div  className="text-white bg-black pb-20 lg:pb-0  h-[120vh] lg:h-[142.5vh] flex gap-10 lg:gap-16 flex-col"  >
+    <div  className="text-white bg-black pb-20 lg:pb-0  h-[120vh] lg:h-[142.5vh] flex gap-10 lg:gap-16 flex-col"  id='event'>
 
         <div className="flex flex-col lg:w-[1110px] mx-auto px-4">
             <div className=" text-[5.3rem] font-medium ">
@@ -54,7 +54,7 @@ const Events = () => {
               {svg1}
             </div>
 
-            <div  className="  h-full w-full z-[-1] pointer-events-none absolute top-0 left-0      group/large"><Image src={pic1} alt='speaker David Hin'  className='w-full object-cover h-full group-hover/card:scale-100 grayscale  group-hover/card:grayscale-0  scale-105  transition-all duration-[2500ms] ease-out  ' /></div>
+            <div  className="  h-full w-full z-[-1] pointer-events-none absolute top-0 left-0      group/large"><Image src={pic1} placeholder='blur' alt='speaker David Hin'  className='w-full object-cover h-full group-hover/card:scale-100 grayscale  group-hover/card:grayscale-0  scale-105  transition-all duration-[2500ms] ease-out  ' /></div>
 
             <div className="flex justify-between  pointer-events-none">
             <div className="text-3xl font-semibold">Designing for web3</div>
@@ -75,7 +75,7 @@ const Events = () => {
                 {svg2}
             </div>
 
-            <div  className="  h-full w-full z-[-1] pointer-events-none absolute top-0 left-0   group/large"><Image src={pic3} alt='speaker Andrew Jones'  className='w-full object-cover h-full group-hover/card:scale-100 grayscale  group-hover/card:grayscale-0  scale-105 transition-all duration-[2500ms] ease-out  hover:scale-100 ' /></div>
+            <div  className="  h-full w-full z-[-1] pointer-events-none absolute top-0 left-0   group/large"><Image src={pic3} placeholder='blur' alt='speaker Andrew Jones'  className='w-full object-cover h-full group-hover/card:scale-100 grayscale  group-hover/card:grayscale-0  scale-105 transition-all duration-[2500ms] ease-out  hover:scale-100 ' /></div>
 
             <div className="flex justify-between items-end gap-4  pointer-events-none">
             <div className="text-3xl font-semibold">The Complete Guide to Full Stack Solana Development</div>
@@ -95,7 +95,7 @@ const Events = () => {
               {svg1}
             </div>
 
-            <div  className="  h-full w-full z-[-1] pointer-events-none absolute top-0 left-0   group/large"><Image src={pic2} alt='speaker Kevin Ayo'  className='w-full object-cover h-full group-hover/card:scale-100 grayscale  group-hover/card:grayscale-0  scale-105 transition-all duration-[2500ms] ease-out  hover:scale-100 ' /></div>
+            <div  className="  h-full w-full z-[-1] pointer-events-none absolute top-0 left-0   group/large"><Image src={pic2} placeholder='blur' alt='speaker Kevin Ayo'  className='w-full object-cover h-full group-hover/card:scale-100 grayscale  group-hover/card:grayscale-0  scale-105 transition-all duration-[2500ms] ease-out  hover:scale-100 ' /></div>
 
             <div className="flex justify-between gap-4  pointer-events-none">
             <div className="text-3xl font-semibold">The Ethereum Merge</div>
@@ -116,7 +116,7 @@ const Events = () => {
               {svg2}
             </div>
 
-            <div  className="  h-full w-full z-[-1] pointer-events-none absolute top-0 left-0   group/large"><Image src={pic4} alt='speaker Deric Griff'  className='w-full object-cover h-full group-hover/card:scale-100 grayscale  group-hover/card:grayscale-0  scale-105 transition-all duration-[2500ms] ease-out  hover:scale-100 ' /></div>
+            <div  className="  h-full w-full z-[-1] pointer-events-none absolute top-0 left-0   group/large"><Image src={pic4} placeholder='blur' alt='speaker Deric Griff'  className='w-full object-cover h-full group-hover/card:scale-100 grayscale  group-hover/card:grayscale-0  scale-105 transition-all duration-[2500ms] ease-out  hover:scale-100 ' /></div>
 
             <div className="flex justify-between  pointer-events-none">
             <div className="text-3xl font-semibold">Web3 Frontend with React</div>
@@ -138,7 +138,7 @@ const Events = () => {
               {svg1}
             </div>
 
-            <div  className="  h-full w-full z-[-1] pointer-events-none absolute top-0 left-0   group/large"><Image src={pic5} alt='speaker Steven Fawne'  className='w-full object-cover h-full group-hover/card:scale-100 grayscale  group-hover/card:grayscale-0  scale-105 transition-all duration-[2500ms] ease-out  hover:scale-100 ' /></div>
+            <div  className="  h-full w-full z-[-1] pointer-events-none absolute top-0 left-0   group/large"><Image src={pic5} placeholder='blur' alt='speaker Steven Fawne'  className='w-full object-cover h-full group-hover/card:scale-100 grayscale  group-hover/card:grayscale-0  scale-105 transition-all duration-[2500ms] ease-out  hover:scale-100 ' /></div>
 
             <div className="flex justify-between  pointer-events-none">
             <div className="text-3xl font-semibold">Branding in web3</div>

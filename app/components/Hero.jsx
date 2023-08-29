@@ -1,6 +1,6 @@
 'use client'
 import React, { useEffect, useRef } from 'react'
-
+import { useMousePosition } from '../hooks/useMouse'
 import { gsap } from 'gsap'
 import { CustomEase } from 'gsap/all'
 import Image from 'next/image'
@@ -10,12 +10,35 @@ import hicon3 from '../../public/hicon3.svg'
 import hicon4 from '../../public/hicon4.svg'
 
 const Hero = () => {
-
+  const useMouse=useMousePosition()
   const loader=useRef()
   const blocno=useRef()
   const bloc=useRef()
+  // useEffect(()=>{
+  //   const items = document.querySelectorAll(".images");
+  //   const twidth=window.innerWidth
+  //   const theight=window.innerHeight
+  //    console.log(twidth,theight);
+  //   const {x,y,e}=useMouse
+  //   items.forEach((item)=>{
+  //     const itemw = item.getBoundingClientRect().x;
+  //     const itemh = item.getBoundingClientRect().y;
+      
+  //     // Calculate the new position in the opposite direction of the mouse
+  //     const newX = itemw - x / twidth * 2; // Subtract 2 pixels from the X position
+  //     const newY = itemh - y / theight * 2; // Subtract 2 pixels from the Y position
+      
+  //    // item.style.transform = `translate(${newX}px, ${newY}px)`;
+  
+  //   })
+  // },[useMouse])
   useEffect(()=>{
+    gsap.registerPlugin(CustomEase)
     const items = document.querySelectorAll(".images");
+    
+
+
+
     const tl=gsap.timeline()
       tl.to(
         blocno.current,{
@@ -41,8 +64,8 @@ const Hero = () => {
       )
       tl.from(
         items,{
-          y:500,
-          ease:'bounce',
+          y:1000,
+          ease:'easeOut',
           duration:1,
           stagger:0.2
         }
@@ -50,7 +73,7 @@ const Hero = () => {
   },[])
   return (
     <>
-    <div className="fixed z-50 top-0 left-0 w-full h-full bg-black flex items-center justify-center" ref={loader}>
+    <div className="fixed z-50 top-0 left-0 w-full h-full bg-black flex items-center pointer-events-none justify-center" ref={loader}>
     <div ref={bloc}  className="w-[14rem]  h-[14rem] lg:w-[14rem]  lg:h-[14rem]  bg-white text-black clip-path-polygon-[20%_0%,_80%_0%,_100%_20%,_100%_100%,_80%_100%,_20%_100%,_0_83%,_0_0] z-[-1] flex items-end justify-end px-4 py-4 text-3xl font-semibold"><span ref={blocno}>0</span>%</div>
 
     </div>
