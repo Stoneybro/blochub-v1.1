@@ -2,9 +2,9 @@
 import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 import logo from '../../public/logo.svg'
-import {BiMenu,BiX} from 'react-icons/bi'
-
+import {BiMenu} from 'react-icons/bi'
 import { LiaTimesSolid} from 'react-icons/lia'
+
 
 import Link from 'next/link'
 const Nav = () => {
@@ -22,7 +22,8 @@ const Nav = () => {
             <button className="self-center" onClick={()=>setNav(false)}><LiaTimesSolid size={35} /></button>
             </div>
             </div>
-            <div className={`fixed top-[81px] w-full sm:w-[80%] md:w-[80%]  lg:w-[32.5%] ${reg?"h-[70%] sm:h-[55%]  md:h-[60%] lg:h-[75%]  ":'h-0'} transition-all duration-300  overflow-hidden  bg-white z-50 text-black left-[50%] translate-x-[-50%] px-6 `}><div className= {` w-full py-10 h-[100%]  ${reg?'flex':'hidden'} flex flex-col  items-center   text-black`}>
+            <div className={`fixed top-[81px] w-full sm:w-[80%] md:w-[80%]  lg:w-[32.5%] ${reg?"h-[70%] sm:h-[55%]  md:h-[60%] lg:h-[75%]  ":'h-0'} transition-all duration-300  overflow-hidden  bg-white z-50 text-black left-[50%] translate-x-[-50%] px-6 `}>
+              <div className= {` w-full py-10 h-[100%]  ${reg?'flex':'hidden'} flex flex-col  items-center   text-black`}>
             <button className=" px-5 py-1 border-black border rounded-full" onClick={()=>setReg(false)}>CLOSE</button>
             <div className="lg:text-[3.3rem] text-[2.7rem] font-medium">JOIN BLOCHUB</div>
             <div className=" flex flex-col w-[100%] mt-8 gap-4">

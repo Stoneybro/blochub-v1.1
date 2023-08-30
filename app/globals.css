@@ -114,3 +114,9 @@ body {
 		transform: translate3d(calc(0% + 50vw), 0, 0);
 	}
 }
+.images,.image{
+	transition: all;
+	transition-duration: 100ms;
+	transition-timing-function: ease-out;
+	
+}

@@ -62,16 +62,16 @@ const About = () => {
                     {splitwords()}
                     </div>
                     </div>
-                <div className="relative flex-1 flex justify-between self-center lg:self-auto">
+                <div className="relative lg:flex-1 w-full flex justify-between self-center lg:self-auto">
                     <div className="flex items-end">
                     <div className="hidden md:flex gap-4 items-center">
                         <div className="text-[1.7rem] font-semibold ">Unlock the future with BlocHub</div>
-                         <div className="bg-secondary rounded-full w-8 h-8">
+                         <div className="bg-secondary w-8 h-8">
                         </div>
                     </div>
                    
                         </div>
-                        <div className="w-[20rem] h-[20rem] lg:w-[20.5rem]  lg:h-[20.5rem] pt-3 pl-2 bg-secondary   clip-path-polygon-[20%_0%,_80%_0%,_100%_20%,_100%_100%,_80%_100%,_20%_100%,_0_83%,_0_0]"><Image src={pic} priority={true}   alt='a video explaining what we do' className='object-cover w-[15rem] h-[15rem] '  /></div>
+                        <div className="w-[90%] lg:w-[20rem] h-[20rem] lg:w-[20.5rem] mx-auto lg:mx-0  lg:h-[20.5rem] pt-3 pl-2 bg-secondary   clip-path-polygon-[20%_0%,_80%_0%,_100%_20%,_100%_100%,_80%_100%,_20%_100%,_0_83%,_0_0]"><Image src={pic} priority={true}   alt='a video explaining what we do' className='object-cover w-[77.5%] h-[79%] '  /></div>
         </div>
                      
                 </div>

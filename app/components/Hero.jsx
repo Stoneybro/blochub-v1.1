@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useMousePosition } from '../hooks/useMouse'
 import { gsap } from 'gsap'
 import { CustomEase } from 'gsap/all'
@@ -14,27 +14,41 @@ const Hero = () => {
   const loader=useRef()
   const blocno=useRef()
   const bloc=useRef()
-  // useEffect(()=>{
-  //   const items = document.querySelectorAll(".images");
-  //   const twidth=window.innerWidth
-  //   const theight=window.innerHeight
-  //    console.log(twidth,theight);
-  //   const {x,y,e}=useMouse
-  //   items.forEach((item)=>{
-  //     const itemw = item.getBoundingClientRect().x;
-  //     const itemh = item.getBoundingClientRect().y;
+  const [size,setSize]=useState({width:'',height:''})
+  useEffect(()=>{
+    const items = document.querySelectorAll(".images");
+    items.forEach((item)=>{
+      const itemw = item.getBoundingClientRect().x;
+      const itemh = item.getBoundingClientRect().y;
+        setSize({width:itemw,height:itemh})
+    })
+  },[])
+
+  useEffect(()=>{
+    const items = document.querySelectorAll(".images");
+    const item =document.querySelectorAll(".image");
+    const twidth=window.innerWidth
+    const theight=window.innerHeight
+    const {x,y,e}=useMouse
+    item.forEach((items)=>{
+      const newX = (x-window.innerWidth/size.width)/50*-1; 
+      const newY = (y-window.innerHeight/size.height)/50; 
+      items.style.transform=`translate(${newX}px , ${newY}px)` 
+    })
+    items.forEach((items)=>{
+      const newX = (x-window.innerWidth/size.width)/50*-1; 
+      const newY = (y-window.innerHeight/size.height)/50; 
+      items.style.transform=`translate(${newX}px , ${newY}px)` 
+    })
+   // console.log(size.width,x,window.innerWidth);
+     
       
-  //     // Calculate the new position in the opposite direction of the mouse
-  //     const newX = itemw - x / twidth * 2; // Subtract 2 pixels from the X position
-  //     const newY = itemh - y / theight * 2; // Subtract 2 pixels from the Y position
-      
-  //    // item.style.transform = `translate(${newX}px, ${newY}px)`;
-  
-  //   })
-  // },[useMouse])
+     
+
+  },[useMouse])
   useEffect(()=>{
     gsap.registerPlugin(CustomEase)
-    const items = document.querySelectorAll(".images");
+    const items = document.querySelectorAll(".mark");
     
 
 
@@ -62,12 +76,15 @@ const Hero = () => {
         },
         
       )
-      tl.from(
+      tl.fromTo(
         items,{
           y:1000,
+         
+        },{
+          y:0,
           ease:'easeOut',
           duration:1,
-          stagger:0.2
+          stagger:0.2,
         }
       )
   },[])
@@ -80,10 +97,11 @@ const Hero = () => {
     <div className='bg-black text-white  h-[calc(100vh)] -z-10 flex items-center lg:pt-32 justify-center   sticky top-0' >
        
         <div className="lg:w-[1110px] w-full flex flex-col justify-center items-center  relative">
-        <Image src={hicon1} alt='icon' className='absolute images top-[-35%] left-[5%]  w-28' />
-        <Image src={hicon2} alt='icon' className='absolute  images top-[-20%] right-[3.5%]  w-28' />
-        <Image src={hicon3} alt='icon' className='absolute  images bottom-[-22%] left-[-4.5%]  w-28' />
-        <Image src={hicon4} alt='icon' className='absolute  images bottom-[-33%] right-[5%]  w-28' />
+          <div className="absolute images mark transition-all duration-75 ease-linear top-[-35%] left-[5%]  w-28"> <Image src={hicon1} alt='icon' className='' /></div>
+       
+        <Image src={hicon2} alt='icon' className='absolute mark transition-all duration-75 ease-linear  image top-[-20%] right-[3.5%]  w-28' />
+        <Image src={hicon3} alt='icon' className='absolute mark transition-all duration-75 ease-linear  images bottom-[-22%] left-[-4.5%]  w-28' />
+        <Image src={hicon4} alt='icon' className='absolute mark transition-all duration-75 ease-linear  image bottom-[-33%] right-[5%]  w-28' />
         <div className="relative z-[0]">
         <div className=" text-[4rem]  md:text-6rem  lg:text-[6rem] xl:text-[6.785rem] text-center  leading-none px-6 mb-8  ">Discover the power of unity in Blockchain</div>
         <div className="text-2xl font-light text-center px-2 lg:px-0 ">Unlock the future with BlocHub. Join our vibrant community of blockchain enthusiasts and developers, and become part of the decentralized revolution.</div>
