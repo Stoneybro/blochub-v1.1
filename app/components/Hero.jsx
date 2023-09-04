@@ -94,7 +94,7 @@ const Hero = () => {
     <div ref={bloc}  className="w-[14rem]  h-[14rem] lg:w-[14rem]  lg:h-[14rem]  bg-white text-black clip-path-polygon-[20%_0%,_80%_0%,_100%_20%,_100%_100%,_80%_100%,_20%_100%,_0_83%,_0_0] z-[-1] flex items-end justify-end px-4 py-4 text-3xl font-semibold"><span ref={blocno}>0</span>%</div>
 
     </div>
-    <div className='bg-black text-white lg:h-screen py-[27%] lg:py-0   -z-10 flex items-center lg:pt-32 justify-center   sticky top-0' >
+    <div className='bg-black text-white lg:h-screen py-[32%] lg:py-0   -z-10 flex items-center lg:pt-32 justify-center   sticky top-0' >
        
         <div className="lg:w-[1110px] w-full flex flex-col justify-center items-center  relative">
           <div className="absolute images mark transition-all duration-75 ease-linear lg:top-[-35%] top-[-8%] left-[3%] lg:left-[5%]  lg:w-28 md:w-28 w-20"> <Image src={hicon1} alt='icon' className='' /></div>
