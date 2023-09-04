@@ -20,7 +20,7 @@ export default function Home() {
 
   return (
     
-    <div className='h-screen' >
+    <div className='sm:h-screen lg:h-full  h-full  ' >
            <Mouse />
    <Nav />
       <Hero />

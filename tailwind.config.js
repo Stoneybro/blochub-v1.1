@@ -21,6 +21,12 @@ module.exports = {
       fontFamily: {
         sans: ['var(--font-roobert)'],
 
+      },
+      fontSize: {
+        bigclamp: "clamp(1rem, 12vw, 6.5rem)",
+        mediumclamp:"clamp(1rem, 17vw, 8rem)",
+        smallclamp:"clamp(0.5rem, 6.1vw, 4rem )",
+        tinyclamp:"clamp(0.5rem, 5vw, 2rem )",
       }
     },
   },

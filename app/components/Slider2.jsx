@@ -1,5 +1,6 @@
 'use client'
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef,useLayoutEffect } from 'react'
+
 import { gsap } from 'gsap'
 import Image from 'next/image'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -29,22 +30,14 @@ export default function Slider2() {
   const thirdsvg=useRef(null)
   let xPercent=0
   let direction=1
-  useEffect(()=>{
+  useLayoutEffect(()=>{
     requestAnimationFrame(animation)
 
 
   },[])
-  useEffect(()=>{
+  useLayoutEffect(()=>{
     gsap.registerPlugin(ScrollTrigger)
-    // gsap.to(slider.current,{
-    //   ScrollTrigger:{
-    //     trigger:slider.current,
-    //     scrub:true,
-    //     // eslint-disable-next-line react-hooks/exhaustive-deps
-    //     onUpdate:e=>direction=direction*-1
-    //   },
 
-    // })
   },[])
   const animation=()=>{
     if (xPercent <= -100) {
@@ -61,7 +54,7 @@ export default function Slider2() {
 
   return (
 
-        <div className='overflow-hidden pt-24' ref={slider}>
+        <div className='overflow-hidden bg-black pt-24' ref={slider}>
         <div className="bg-black  pb-24 lg:pb-36 flex w-[70rem] lg:w-[200vw]"  >
         <div className="w-full" ref={firstsvg} ><Image src={logo}  alt='slider' className=' w-[27rem] xl:w-[250rem] lg:w-[200rem] md:w-[200rem]'  />
   </div>

@@ -13,7 +13,7 @@ const Nav = () => {
 
   return (
     <>
-          <div className={`fixed top-0 lg:w-[26%] w-screen ${nav?"h-[40%] pt-12":'h-0'} transition-all duration-300  overflow-hidden  bg-white z-50 text-black left-[50%] translate-x-[-50%] px-6 `}><div className= {` w-full py-2 h-[100%] ${nav?'flex':'hidden'} flex flex-col justify-between items-center   text-black`}>
+          <div className={`fixed top-0 lg:w-[26%] w-screen ${nav?"sm:h-[60%] h-[40%] pt-12":'h-0'} transition-all duration-300  overflow-hidden  bg-white z-50 text-black left-[50%] translate-x-[-50%] px-6 `}><div className= {` w-full py-2 h-[100%] ${nav?'flex':'hidden'} flex flex-col justify-between items-center   text-black`}>
             <Link href={'#about'}><div className="">WHO WE ARE</div></Link>
             <Link href={'#services'}><div className="">WHAT WE DO</div></Link>
             <Link href={'#event'}><div className="">EVENTS</div></Link>
@@ -22,7 +22,8 @@ const Nav = () => {
             <button className="self-center" onClick={()=>setNav(false)}><LiaTimesSolid size={35} /></button>
             </div>
             </div>
-            <div className={`fixed top-[81px] w-full sm:w-[80%] md:w-[80%]  lg:w-[32.5%] ${reg?"h-[70%] sm:h-[55%]  md:h-[60%] lg:h-[75%]  ":'h-0'} transition-all duration-300  overflow-hidden  bg-white z-50 text-black left-[50%] translate-x-[-50%] px-6 `}>
+            <div className={`${reg?"h-screen": 'h-0'} w-screen transition-all duration-300  fixed  left-0 top-0 backdrop-blur-xl z-40`}  >
+            <div className={` w-full sm:overflow-scroll lg:overflow-hidden sm:w-[80%] md:w-[80%]  lg:w-[32.5%]  ${reg?"h-[70%] sm:h-[20rem]  md:h-[60%] lg:h-[75%]  ":'h-0'} transition-all duration-300  overflow-hidden  bg-white z-50 text-black absolute top-[81px] left-[50%] translate-x-[-50%] px-6  `}>
               <div className= {` w-full py-10 h-[100%]  ${reg?'flex':'hidden'} flex flex-col  items-center   text-black`}>
             <button className=" px-5 py-1 border-black border rounded-full" onClick={()=>setReg(false)}>CLOSE</button>
             <div className="lg:text-[3.3rem] text-[2.7rem] font-medium">JOIN BLOCHUB</div>
@@ -32,7 +33,8 @@ const Nav = () => {
               <div className="rounded-full border w-full h-12 flex justify-center items-center"><input type="text" className='outline-none w-[90%] text-black placeholder:text-black' placeholder='EMAIL*' /></div>
 
             </div>
-            <button className="bg-black py-3 mt-6 text-white w-full flex justify-center items-center rounded-full">Submit</button>
+            <button className="bg-black  py-3 mt-6 text-white w-full flex justify-center items-center rounded-full">Submit</button>
+            </div>
             </div>
             </div>
     <div className=" text-white py-[22px] fixed w-full top-0 z-40 mix-blend-difference" id='nav'>

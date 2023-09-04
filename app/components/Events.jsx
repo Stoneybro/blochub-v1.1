@@ -26,7 +26,7 @@ const Events = () => {
   
 </svg>
   return (
-    <div  className="text-white bg-black pb-20 lg:pb-0  h-[120vh] lg:h-[142.5vh] flex gap-10 lg:gap-16 flex-col"  id='event'>
+    <div  className="text-white bg-black pb-20 lg:pb-0  h-[120vh] min-h-[50rem] lg:h-[142.5vh] flex gap-10 lg:gap-16 flex-col"  id='event'>
 
         <div className="flex flex-col lg:w-[1110px] mx-auto px-4">
             <div className=" text-[5.3rem] font-medium ">
@@ -39,7 +39,7 @@ const Events = () => {
 
 
         {/* second section */}
-        <div className="h-[60.5%] lg:h-[57%] relative overflow-hidden cursor-none"  id='events'>
+        <div className="h-[60.5%]  lg:h-[57%] relative overflow-hidden cursor-none"  id='events'>
         <motion.div className="  bg-black   absolute  top-0 h-full w-full   z-[0] cursor-none"  ref={container}  id='events' >
         <motion.div
           drag='x'
