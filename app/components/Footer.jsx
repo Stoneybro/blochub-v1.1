@@ -5,9 +5,9 @@ const Footer = () => {
         <path d="M1.94061 14.9587L15.4037 1.49561M15.4037 1.49561V14.4202M15.4037 1.49561H2.47914" stroke="white" stroke-width="1.86988" stroke-linecap="square"/>
         </svg>
   return (
-    <div className="bg-black" data-scroll-section>
+    <div className="bg-black flex-col md:flex-row sm:justify-between items-center sm:px-4 flex " data-scroll-section>
 
-    <div className="flex gap-8 justify-between sm:justify-normal py-8 px-6 lg:px-0   text-white text-xl lg:w-[1110px] mx-auto">
+    <div className="flex gap-8 justify-between sm:justify-normal py-8 px-6 lg:px-0   text-white text-xl lg:w-[1110px] mx-auto sm:mr-auto">
        
         <button      
     className={` overflow-hidden   flex  items-center  group/perr`}>
@@ -38,6 +38,7 @@ const Footer = () => {
      </button>
 
     </div>
+    <div className="text-[#4D4D4D] text-xl pb-4 sm:pb-0">Nextstudios©2023</div>
     </div>
   )
 }
