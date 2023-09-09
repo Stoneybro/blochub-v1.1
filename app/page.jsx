@@ -20,8 +20,8 @@ export default function Home() {
 
   return (
     
-    <div className='sm:h-screen lg:h-full  h-full  ' >
-                 <Mouse />
+    <div className='sm:h-screen lg:h-full  h-full scroll-smooth  ' >
+      <Mouse />
    <Nav />
       <Hero />
       <About />
