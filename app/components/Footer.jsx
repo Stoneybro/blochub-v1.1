@@ -6,7 +6,7 @@ const Footer = () => {
         </svg>
   return (
     <div className="bg-black flex-col md:flex-row sm:justify-between items-center sm:px-4 flex " data-scroll-section>
-      <div className=" lg:w-[1110px] mx-auto  flex-col md:flex-row sm:justify-between items-center sm:px-4 flex">
+      <div className=" lg:w-[1110px] mx-auto  flex-col lg:flex-row sm:justify-between items-center sm:px-4 flex">
     <div className="flex gap-8 justify-between sm:justify-normal py-8 px-6 lg:px-0   text-white text-xl mx-auto sm:ml-0 sm:mr-auto">
        
         <button      
