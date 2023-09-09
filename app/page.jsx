@@ -21,6 +21,23 @@ export default function Home() {
   return (
     
     <div className='sm:h-screen lg:h-full  h-full  ' >
+                 <Mouse />
+   <Nav />
+      <Hero />
+      <About />
+      <Services />
+      <Slider />
+      <Events />
+      <Resources />
+      <Strips />
+      <Cta />
+      <Slider2 />
+      <Footer /> 
+
+     {/* 
+
+
+    <MyReactComponent />
            <Mouse />
    <Nav />
       <Hero />
@@ -33,12 +50,6 @@ export default function Home() {
       <Cta />
       <Slider2 />
       <Footer /> 
-     {/* 
-
-
-    <MyReactComponent />
-
-
 
 
 
