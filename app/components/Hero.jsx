@@ -15,6 +15,11 @@ const Hero = () => {
   const blocno=useRef()
   const bloc=useRef()
   const [size,setSize]=useState({width:'',height:''})
+  const [delayPassed, setDelayPassed] = useState(false);
+  const items = document.querySelectorAll(".images");
+  const item =document.querySelectorAll(".image");
+  const twidth=window.innerWidth
+  const theight=window.innerHeight
   useEffect(()=>{
     const items = document.querySelectorAll(".images");
     items.forEach((item)=>{
@@ -23,28 +28,31 @@ const Hero = () => {
         setSize({width:itemw,height:itemh})
     })
   },[])
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setDelayPassed(true);
+    }, 7000);
 
+    return () => clearTimeout(timer);
+  }, []);
   useEffect(()=>{
-    const items = document.querySelectorAll(".images");
-    const item =document.querySelectorAll(".image");
-    const twidth=window.innerWidth
-    const theight=window.innerHeight
-    const {x,y,e}=useMouse
-    item.forEach((items)=>{
-      const newX = (x-window.innerWidth/size.width)/50*-1; 
-      const newY = (y-window.innerHeight/size.height)/50; 
-      items.style.transform=`translate(${newX}px , ${newY}px)` 
-    })
-    items.forEach((items)=>{
-      const newX = (x-window.innerWidth/size.width)/50*-1; 
-      const newY = (y-window.innerHeight/size.height)/50; 
-      items.style.transform=`translate(${newX}px , ${newY}px)` 
-    })
-   // console.log(size.width,x,window.innerWidth);
-     
-      
-     
 
+    const {x,y,e}=useMouse
+    if (delayPassed) {
+      item.forEach((items)=>{
+        const newX = (x-window.innerWidth/size.width)/50*-1; 
+        const newY = (y-window.innerHeight/size.height)/50; 
+        items.style.transform=`translate(${newX}px , ${newY}px)` 
+      })
+      items.forEach((items)=>{
+        const newX = (x-window.innerWidth/size.width)/50*-1; 
+        const newY = (y-window.innerHeight/size.height)/50; 
+        items.style.transform=`translate(${newX}px , ${newY}px)` 
+      })
+    }
+    
+   
+     
   },[useMouse])
   useEffect(()=>{
     gsap.registerPlugin(CustomEase)

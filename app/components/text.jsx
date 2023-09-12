@@ -1,151 +1,282 @@
 'use client'
 import React, { useEffect,useState, useRef } from 'react'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import Button from './button'
+import Image from 'next/image'
+import pic1 from '../../public/pic1.webp'
+import pic2 from '../../public/pic2.webp'
+import pic3 from '../../public/pic3.webp'
+import pic4 from '../../public/pic4.webp'
+import pic5 from '../../public/pic5.webp'
 
 function MyReactComponent() {
-  const container1=useRef(null)
-  const container2=useRef(null)
-  const container3=useRef(null)
-  const bigtext1=useRef(null)
-  const bigtext2=useRef(null)
-  const bigtext3=useRef(null)
-  const refs1=useRef([])
-  const refs2=useRef([])
-  const refs3=useRef([])
-  const bigtext='Connect'
-  const smalltext1='Connect with a diverse network of blockchain developers, designers, and enthusiasts from around the globe'
-  const smalltext2='Experience the true spirit of collaboration at Blochub, where blockchain enthusiasts and developers unite to create groundbreaking innovations together.'
-  const smalltext3='Embark on an exciting journey of learning, as we empower you with the knowledge and tools to master web3 development and decentralized technologies.'
-  const text=[[],[],[]]
-
-smalltext1.split(" ").forEach((word,index)=>{
-    text[0].push(<div key={index} className='pl-2 overflow-hidden'><div className=' translate-y-full' ref={e=>refs1.current.push(e)}>{word}</div></div>)
-  })
-  smalltext2.split(" ").forEach((word,index)=>{
-    text[1].push(<div key={index} className='pl-2 overflow-hidden'><div className=' translate-y-full' ref={e=>refs2.current.push(e)}>{word}</div></div>)
-  })
-  smalltext3.split(" ").forEach((word,index)=>{
-    text[2].push(<div key={index} className='pl-2 overflow-hidden'><div className=' translate-y-full' ref={e=>refs3.current.push(e)}>{word}</div></div>)
-  })
+  const container=useRef(null)
+  const wrapper=useRef(null)
   useEffect(()=>{
-    gsap.registerPlugin(ScrollTrigger)
-    gsap.to(bigtext1.current,{
-      translateY:0,
-      ease:'ease',
-      scrollTrigger:{
     
-        trigger:container1.current,
-        start:'15% 90%' ,
-       
 
-      },duration:1
-    }
-    
-    )
-    gsap.to(bigtext2.current,{
-      translateY:0,
-      ease:'ease',
-      scrollTrigger:{
-    
-        trigger:container2.current,
-        start:'15% 80%' 
-       
+    const MathUtil = {
+      lerp: (a, b, n) => (1 - n) * a + n * b
+  };
 
-      },duration:1
-    })
-    gsap.to(bigtext3.current,{
-      translateY:0,
-      ease:'ease',
-      scrollTrigger:{
-    
-        trigger:container3.current,
-        start:'15% 85%' ,
-        
+  let winsize;
+  const calcWinsize = () => winsize = { width: window.innerWidth, height: window.innerHeight };
+  calcWinsize();
+  window.addEventListener('resize', calcWinsize);
 
-        
+  class GalleriaItem {
+      constructor(el, parent) {
+          this.el = el;
+      }
+  }
 
-      },duration:1
-    })
-    gsap.to(refs1.current,{
-     translateY:0,
-      ease:'ease',
+  class Galleria {
+      constructor(el) {
+          this.el = el;
+          this.inner = this.el.querySelector('.galleria__inner');
+          this.innerWidth = 0;
+          this.items = [];
+          [...this.el.querySelectorAll('.galleria__item')].forEach(item => {
+              this.items.push(new GalleriaItem(item))
+              this.innerWidth += item.getBoundingClientRect().width;
+          });
+          this.isDragged = false;
+          this.currentX = 0;
+          this.initialX = 0;
+          this.xOffset = 0;
+          this.pervPosition = 0;
+          this.maxDrag = this.innerWidth - winsize.width;
+          this.intervalId = undefined;
+          this.init();
+          this.initEvents();
+      }
 
-      scrollTrigger:{
-    
-        trigger:container1.current,
+      init() {
+          this.inner.style.width = this.innerWidth + 'px';
+          this.render = () => {
+              this.intervalId = undefined;
 
-          start:'15% 85%',
-          end:'80% 50%',
+              this.pervPosition = MathUtil.lerp(this.pervPosition, this.currentX, 0.1);
+              this.inner.style.transform = 'matrix(1, 0, 0, 1, ' + this.pervPosition + ', 0)';
 
-      },
-      duration:1
-    })
-    gsap.to(refs2.current,{
-      translateY:0,
-       ease:'ease',
- 
-       scrollTrigger:{
-     
-         trigger:container2.current,
+              if (!this.intervalId) {
+                  this.intervalId = requestAnimationFrame(() => this.render());
+              }
+          };
+          this.intervalId = requestAnimationFrame(() => this.render());
+      }
 
-           start:'15% 70%',
-           end:'80% 50%',
- 
-       },
-       duration:1
-     })
-     gsap.to(refs3.current,{
-      translateY:0,
-       ease:'ease',
- 
-       scrollTrigger:{
-     
-         trigger:container3.current,
+      onDragStart(e) {
+          this.isDragged = true;
+          this.initialX = this.unify(e).clientX - this.xOffset;
+      }
 
-           start:'15% 70%',
-           end:'80% 50%',
- 
-       },
-       duration:1
-     })
+      onDragMove(e) {
+          if (!this.isDragged) return;
+          e.preventDefault();
+          this.currentX = this.unify(e).clientX - this.initialX;
+      }
+
+      onDragEnd() {
+          if (this.currentX > 0) {
+              this.currentX = 0;
+          }
+          if (this.currentX < -1 * this.maxDrag) {
+              this.currentX = -1 * this.maxDrag;
+          }
+
+          this.isDragged = false;
+          this.xOffset = this.currentX;
+      }
+
+      initEvents() {
+          if(window.PointerEvent){
+              // Pointer events
+              this.inner.addEventListener('pointerdown', (e) => {
+                  this.onDragStart(e);
+              });
+              this.inner.addEventListener('pointermove', (e) => {
+                  this.onDragMove(e);
+              });
+              this.inner.addEventListener('pointerup', (e) => {
+                  this.onDragEnd();
+              });
+          }else{
+              // Mouse events
+              this.inner.addEventListener('mousedown', (e) => {
+                  this.onDragStart(e);
+              });
+              this.inner.addEventListener('mouseleave', (e) => {
+                  this.onDragEnd();
+              });
+              this.inner.addEventListener('mouseup', (e) => {
+                  this.onDragEnd();
+              });
+              this.inner.addEventListener('mousemove', (e) => {
+                  this.onDragMove(e);
+              });
+
+              // Touch events
+              this.inner.addEventListener('touchstart', (e) => {
+                  this.onDragStart(e);
+              });
+              this.inner.addEventListener('touchmove', (e) => {
+                  this.onDragMove(e);
+              });
+              this.inner.addEventListener('touchend', (e) => {
+                  this.onDragEnd();
+              });
+          }
+          // Unifying touch and click
+          this.unify = (e) => {
+              return e.changedTouches ? e.changedTouches[0] : e
+          };
+      }
+  }
+
+  var galleria = document.querySelectorAll('.galleria');
+  if (galleria.length > 0) {
+      for (let i = 0; i < galleria.length; i++) {
+        new Galleria(galleria[i]);
+      }
+  }
+
   },[])
+  const svg2=<svg width="164" height="38" viewBox="0 0 164 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M1 29.8885V1H155.993L163 7.14184V36.704H8.77561L1 29.8885Z" stroke="white" stroke-width="2"/>
+  <text x="22.5" y="25" font-size="20" fill="white">Development</text>
+  </svg>
+  
+  const svg1=<svg xmlns="http://www.w3.org/2000/svg" width="106" height="38" viewBox="0 0 106 38" fill="none">
+  <path d="M1 29.8885V1H97.993L105 7.14185V36.704H8.77561L1 29.8885Z" stroke="white" stroke-width="2"/>
+  <text x="22.5" y="25" font-size="20" fill="white">Design</text>
+  </svg>
+  const svg=<svg width="38" height="37" viewBox="0 0 38 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M3 34.5L35.5 2M35.5 2V33.2M35.5 2H4.3" stroke="white" stroke-width="3.5" stroke-linecap="square"/>
+  </svg>
+  const button=  <button      
+  className={`  text-white   overflow-hidden   flex flex-col items-center justify-center`}>
+      <div className="relative z-10 group-hover/card:-translate-y-[110%] group-hover/card:translate-x-[110%] transition-all duration-[350ms] ease-out">
+      <div className="">{svg}</div>
+      <div className="absolute -left-[110%] top-[110%]">{svg}</div>
+      </div>
+
+
+    </button>
   return (
-    <>
- 
-    <div className="bg-black pt-28 pb-16  text-white" id='services'>
-        <div className="gap-24 lg:gap-8 flex flex-col lg:w-[1110px] mx-auto lg:px-0 px-4">
-   <div ref={container1} className="">
-   <div className="flex flex-col  relative h-[18rem] lg:w-[850px] z-[0] lg:gap-4 ">
-            <div className="text-[4rem] mt-3 overflow-hidden"><div ref={bigtext1} className=" -translate-y-full">Connect</div></div>
-        <div className="w-[17rem]  h-[17rem] lg:w-[18rem]  lg:h-[18rem] absolute top-0 bg-secondary clip-path-polygon-[20%_0%,_80%_0%,_100%_20%,_100%_100%,_80%_100%,_20%_100%,_0_83%,_0_0] z-[-1] lg:left-[5.5rem] left-[2rem]"></div>
-        <div className="lg:text-[1.6rem] text-[1.3rem] font-light leading-6 lg:leading-8 ml-20 lg:mt-0  lg:ml-56 lg:mr-16"><div className="break-word w-full lg:break-keep flex max-w-[30rem] flex-wrap">{text[0]}</div></div>
+<div className="h-[150vh] py-16 text-white">
+        <div className="h-[60.5%]  lg:h-[57%] relative overflow-hidden cursor-none"  id='events'>
+        <div className="  bg-black   absolute  top-0 h-full w-full   z-[0] cursor-none galleria"   ref={container}  id='events' >
+        <div
+        className="flex w-[450vw] lg:w-[150vw] absolute top-0 h-full overflow-hidden touch-none galleria__inner   z-[0] cursor-none"  id='events' ref={wrapper}>
+
+
+          <div  id='events' className="  px-6 py-5 galleria__item z-0 group/card border-white flex flex-col justify-between border-4 border-r-0 overflow-hidden h-full w-[90vw] lg:w-[calc(150vw/5)] relative  ">
+
+            <div className="flex justify-between  
+            pointer-events-none" >
+              <div className="leading-2">DAVID HIN <br /> <div className="text-sm -m-1">18 AUG 23</div> </div>
+              {svg1}
+            </div>
+
+            <div  className="  h-full w-full z-[-1] pointer-events-none absolute top-0 left-0      group/large"><Image src={pic1} placeholder='blur' alt='speaker David Hin'  className='w-full object-cover h-full group-hover/card:scale-100 grayscale  group-hover/card:grayscale-0  scale-105  transition-all duration-[2500ms] ease-out  ' /></div>
+
+            <div className="flex justify-between items-end  pointer-events-none">
+            <div className="text-3xl font-semibold">Designing for web3</div>
+            <div className="">
+          {button}</div>
+            </div>
+
+          </div>
+
+
+
+          <div  id='events' className="  px-6 py-5 galleria__item z-0 group/card border-white flex flex-col justify-between border-4 border-r-0 overflow-hidden h-full w-[90vw] lg:w-[calc(150vw/5)] relative ">
+
+            <div className="flex justify-between  pointer-events-none" >
+              <div className="leading-2">ANDREW JONES <br /> <div className="text-sm -m-1">02 AUG 23</div> </div>
+                {svg2}
+            </div>
+
+            <div  className="  h-full w-full z-[-1] pointer-events-none absolute top-0 left-0   group/large"><Image src={pic3} placeholder='blur' alt='speaker Andrew Jones'  className='w-full object-cover h-full group-hover/card:scale-100 grayscale  group-hover/card:grayscale-0  scale-105 transition-all duration-[2500ms] ease-out  hover:scale-100 ' /></div>
+
+            <div className="flex justify-between items-end gap-4  pointer-events-none">
+            <div className="text-3xl font-semibold">The Complete Guide to Full Stack Solana Development</div>
+            <div className="">
+          {button}</div>
+            </div>
+
+          </div>
+
+
+          <div  id='events' className="  px-6 py-5 galleria__item z-0 group/card border-white flex flex-col justify-between border-4 border-r-0 overflow-hidden h-full w-[90vw] lg:w-[calc(150vw/5)] relative ">
+
+            <div className="flex justify-between  pointer-events-none" >
+              <div className="leading-2">KELVIN AYO<br /> <div className="text-sm -m-1">6 JUL 23</div> </div>
+              {svg1}
+            </div>
+
+            <div  className="  h-full w-full z-[-1] pointer-events-none absolute top-0 left-0   group/large"><Image src={pic2} placeholder='blur' alt='speaker Kevin Ayo'  className='w-full object-cover h-full group-hover/card:scale-100 grayscale  group-hover/card:grayscale-0  scale-105 transition-all duration-[2500ms] ease-out  hover:scale-100 ' /></div>
+
+            <div className="flex justify-between gap-4 items-end  pointer-events-none">
+            <div className="text-3xl font-semibold">The Ethereum Merge</div>
+            <div className="">
+          {button}</div>
+            </div>
+
+          </div>
+
+
+
+          <div  id='events' className="  px-6 py-5 galleria__item z-0 group/card border-white flex flex-col justify-between border-4 border-r-0 overflow-hidden h-full w-[90vw] lg:w-[calc(150vw/5)] relative ">
+
+            <div className="flex justify-between  pointer-events-none" >
+              <div className="leading-2">DERIC GRIF<br /> <div className="text-sm -m-1">30 SEP 23</div> </div>
+              {svg2}
+            </div>
+
+            <div  className="  h-full w-full z-[-1] pointer-events-none absolute top-0 left-0   group/large"><Image src={pic4} placeholder='blur' alt='speaker Deric Griff'  className='w-full object-cover h-full group-hover/card:scale-100 grayscale  group-hover/card:grayscale-0  scale-105 transition-all duration-[2500ms] ease-out  hover:scale-100 ' /></div>
+
+            <div className="flex justify-between items-end  pointer-events-none">
+            <div className="text-3xl font-semibold">Web3 Frontend with React</div>
+            <div className="">
+          {button}</div>
+            </div>
+
+          </div>
+
+
+
+
+          <div  id='events' className="  px-6 py-5 galleria__item z-0 group/card border-white flex flex-col justify-between border-4 border-r-0 overflow-hidden h-full w-[90vw] lg:w-[calc(150vw/5)] relative ">
+
+            <div className="flex justify-between  pointer-events-none" >
+              <div className="leading-2">Steven Fawne<br /> <div className="text-sm -m-1">3 NOV 23</div> </div>
+              {svg1}
+            </div>
+
+            <div  className="  h-full w-full z-[-1] pointer-events-none absolute top-0 left-0   group/large"><Image src={pic5} placeholder='blur' alt='speaker Steven Fawne'  className='w-full object-cover h-full group-hover/card:scale-100 grayscale  group-hover/card:grayscale-0  scale-105 transition-all duration-[2500ms] ease-out  hover:scale-100 ' /></div>
+
+            <div className="flex justify-between items-end pointer-events-none">
+            <div className="text-3xl font-semibold">Branding in web3</div>
+            <div className="">
+          {button}</div>
+            </div>
+
+          </div>
+
+
+
         </div>
-    </div>  
-   <div  ref={container2} className="sm:flex sm:justify-end lg:justify-center">
-   <div className="flex flex-col lg:justify-center relative h-[18rem] lg:w-[850px] z-[0] lg:gap-4">
-            <div className="text-[4rem] overflow-hidden  mt-3 lg:mt-0 lg:ml-24"><div ref={bigtext2} className=" -translate-y-full">Collaborate</div></div>
-        <div className="w-[17rem]  h-[17rem] lg:w-[18rem]  lg:h-[18rem] absolute top-0 lg:left-[273px] lg:right-[273px]  bg-red clip-path-polygon-[20%_0%,_80%_0%,_100%_20%,_100%_100%,_80%_100%,_20%_100%,_0_83%,_0_0] z-[-1] left-[2rem] "></div>
-        <div className="lg:text-[1.6rem] text-[1.3rem] font-light leading-6 lg:leading-8 ml-20 lg:mt-0 lg:ml-[25rem] lg:-mr-32 "><div className="break-all w-full lg:break-keep max-w-[30rem] flex flex-wrap">{text[1]}</div>
         </div>
-        </div>
-    </div>    
-   <div  ref={container3} className="">
-   <div className="flex flex-col justify-center relative h-[18rem] lg:w-[850px] z-[0] lg:gap-4 gap-10">
-            <div className="text-[4rem]  -mt-8 lg:mt-3 overflow-hidden"><div ref={bigtext3} className=" -translate-y-full">Learn</div></div>
-        <div className="w-[17rem]  h-[17rem] lg:w-[18rem]  lg:h-[18rem] absolute top-0 bg-green clip-path-polygon-[20%_0%,_80%_0%,_100%_20%,_100%_100%,_80%_100%,_20%_100%,_0_83%,_0_0] z-[-1] left-[2rem]"></div>
-        <div className="lg:text-[1.6rem] text-[1.3rem] font-light leading-6 lg:leading-8 ml-20 -mt-8 lg:mt-0 lg:ml-40 lg:mr-16"><div className="break-all w-full lg:break-keep max-w-[30rem] flex flex-wrap">{text[2]}</div></div>
-        </div>
-    </div>    
-        </div>
-     
-    </div>
-    </>
+      </div>
+      </div>
   );
 
 
 
 }
-{/* */}
+{/* 
+
+*/}
 
 export default MyReactComponent;

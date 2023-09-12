@@ -24,44 +24,20 @@ export default function Slider2() {
   </clipPath>
   </defs>
   </svg>
-    const slider=useRef(null)
-  const firstsvg= useRef(null)
-  const secondsvg=useRef(null)
-  const thirdsvg=useRef(null)
-  let xPercent=0
-  let direction=1
-  useLayoutEffect(()=>{
-    requestAnimationFrame(animation)
 
-
-  },[])
-  useLayoutEffect(()=>{
-    gsap.registerPlugin(ScrollTrigger)
-
-  },[])
-  const animation=()=>{
-    if (xPercent <= -100) {
-      xPercent = 0;
-    }else if (xPercent > 0) {
-      xPercent=-100
-    }
-    gsap.set(firstsvg.current,{xPercent:xPercent})
-    gsap.set(secondsvg.current,{xPercent:xPercent})
-    gsap.set(thirdsvg.current,{xPercent:xPercent})
-    xPercent+=0.25*direction
-    requestAnimationFrame(animation)
-  }
-
+ 
   return (
 
-        <div className='overflow-hidden bg-black pt-24' ref={slider}>
-        <div className="bg-black  pb-24 lg:pb-36 flex w-[70rem] lg:w-[200vw]"  >
-        <div className="w-full" ref={firstsvg} ><Image src={logo}  alt='slider' className=' w-[27rem] xl:w-[250rem] lg:w-[200rem] md:w-[200rem]'  />
+        <div className='overflow-hidden bg-black pt-24 marquee position'>
+        <div className="bg-black  pb-24 lg:pb-36 flex w-[70rem] lg:w-[200vw] -marquee__inner1 overflow-hidden position"  >
+        <div className="w-full" ><Image src={logo}  alt='slider' className=' w-[27rem] xl:w-[250rem] lg:w-[200rem] md:w-[200rem]'  />
   </div>
-        <div className="w-full" ref={secondsvg} ><Image src={logo}  alt='slider' className=' w-[27rem] xl:w-[250rem] lg:w-[200rem] md:w-[200rem]'  />
+        <div className="w-full" ><Image src={logo}  alt='slider' className=' w-[27rem] xl:w-[250rem] lg:w-[200rem] md:w-[200rem]'  />
         </div>
-        <div className="w-full" ref={thirdsvg}><Image src={logo}  alt='slider' className=' w-[27rem] xl:w-[250rem] lg:w-[200rem] md:w-[200rem]'  />
+        
+        <div className="w-full" ><Image src={logo}  alt='slider' className=' w-[27rem] xl:w-[250rem] lg:w-[200rem] md:w-[200rem]'  />
         </div>
+
       </div>
           </div>
   )

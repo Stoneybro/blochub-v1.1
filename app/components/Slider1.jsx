@@ -10,12 +10,13 @@ const Slider = () => {
 
     useEffect(()=>{
         gsap.registerPlugin(ScrollTrigger)
+
         gsap.to(element.current,{
             scrollTrigger:{
               trigger:element.current,
               start:'top 80%',
               
-              scrub:1,          
+              scrub:true,          
             },
             
             x:"90%",
@@ -26,7 +27,7 @@ const Slider = () => {
   return (
     <div className=' bg-black   overflow-hidden' ref={container}  >
     <div className="w-full " >
-<Image src={logo} alt='slider' className='xl:w-[250rem] lg:w-[200rem] md:w-[200rem] w-[150rem] -translate-x-[95%] py-16' ref={element} />
+<Image src={logo} alt='slider' className='xl:w-[250rem] lg:w-[200rem] md:w-[200rem] w-[150rem] -translate-x-[95%]  py-16' ref={element} />
 
 </div>
 

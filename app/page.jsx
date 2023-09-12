@@ -22,7 +22,7 @@ export default function Home() {
     
     <div className='sm:h-screen lg:h-full  h-full scroll-smooth  ' >
       <Mouse />
-   <Nav />
+      <Nav />
       <Hero />
       <About />
       <Services />
@@ -37,20 +37,9 @@ export default function Home() {
      {/* 
 
 
-    <MyReactComponent />
-           <Mouse />
-   <Nav />
-      <Hero />
-      <About />
-      <Services />
-      <Slider />
-      <Events />
-      <Resources />
-      <Strips />
-      <Cta />
-      <Slider2 />
-      <Footer /> 
 
+   <Mouse />
+   
 
 
  */}

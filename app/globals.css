@@ -68,7 +68,9 @@ body {
 	counter-reset: menu;
 
 }
-
+.position{
+	position: static;
+}
 .marquee__inner,.-marquee__inner {
 	justify-content: space-between;
 	width: max-content;
@@ -83,7 +85,9 @@ body {
 .-marquee__inner{
 	animation: -marquee 5s linear infinite;
 }
-
+.-marquee__inner1{
+	animation: marquee1 5s linear infinite;
+}
 .marquee .marquee__inner,.-marquee .-marquee__inner {
 	animation-play-state: running;
 	opacity: 1;
@@ -108,7 +112,15 @@ body {
 		transform: translate3d(calc(-43% + 50vw), 0, 0);
 	}
 }
+@keyframes marquee1 {
+	0% {
+		transform: translate3d(calc(0% ), 0, 0);
+	}
 
+	100% {
+		transform: translate3d(calc(-33.3% ), 0, 0);
+	}
+}
 @keyframes -marquee {
 	0% {
 		transform: translate3d(calc(-43% + 50vw), 0, 0);
