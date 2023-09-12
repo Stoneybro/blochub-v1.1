@@ -17,7 +17,7 @@ const Hero = () => {
   const [size,setSize]=useState({width:'',height:''})
   const [delayPassed, setDelayPassed] = useState(false);
   useEffect(()=>{
-    const item =document.querySelectorAll(".image");
+
     const items = document.querySelectorAll(".images");
     items.forEach((item)=>{
       const itemw = item.getBoundingClientRect().x;
@@ -33,7 +33,7 @@ const Hero = () => {
     return () => clearTimeout(timer);
   }, []);
   useEffect(()=>{
-
+    const item =document.querySelectorAll(".image");
     const {x,y,e}=useMouse
     if (delayPassed) {
       item.forEach((items)=>{
