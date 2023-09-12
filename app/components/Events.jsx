@@ -176,10 +176,10 @@ const Events = () => {
         <div className="h-[60.5%]  lg:h-[57%] relative overflow-hidden cursor-none"  id='events'>
         <div className="  bg-black   absolute  top-0 h-full w-full   z-[0] cursor-none galleria"   ref={container}  id='events' >
         <div
-        className="flex w-[450vw] lg:w-[150vw] absolute top-0 h-full overflow-hidden touch-none galleria__inner   z-[0] cursor-none"  id='events' ref={wrapper}>
+        className="flex w-[450vw] lg:w-[150vw] absolute top-0 h-full overflow-hidden touch-manipulation galleria__inner   z-[0] cursor-none"  id='events' ref={wrapper}>
 
 
-          <div  id='events' className="  px-6 py-5 galleria__item z-0 group/card border-white flex flex-col justify-between border-4 border-r-0 overflow-hidden h-full w-[90vw] lg:w-[calc(150vw/5)] relative  ">
+          <div  id='events' className="touch-pan-y px-6 py-5 galleria__item z-0 group/card border-white flex flex-col justify-between border-4 border-r-0 overflow-hidden h-full w-[90vw] lg:w-[calc(150vw/5)] relative  ">
 
             <div className="flex justify-between  
             pointer-events-none" >
@@ -199,7 +199,7 @@ const Events = () => {
 
 
 
-          <div  id='events' className="  px-6 py-5 galleria__item z-0 group/card border-white flex flex-col justify-between border-4 border-r-0 overflow-hidden h-full w-[90vw] lg:w-[calc(150vw/5)] relative ">
+          <div  id='events' className="   touch-pan-y px-6 py-5 galleria__item z-0 group/card border-white flex flex-col justify-between border-4 border-r-0 overflow-hidden h-full w-[90vw] lg:w-[calc(150vw/5)] relative ">
 
             <div className="flex justify-between  pointer-events-none" >
               <div className="leading-2">ANDREW JONES <br /> <div className="text-sm -m-1">02 AUG 23</div> </div>
@@ -217,7 +217,7 @@ const Events = () => {
           </div>
 
 
-          <div  id='events' className="  px-6 py-5 galleria__item z-0 group/card border-white flex flex-col justify-between border-4 border-r-0 overflow-hidden h-full w-[90vw] lg:w-[calc(150vw/5)] relative ">
+          <div  id='events' className="   touch-pan-y px-6 py-5 galleria__item z-0 group/card border-white flex flex-col justify-between border-4 border-r-0 overflow-hidden h-full w-[90vw] lg:w-[calc(150vw/5)] relative ">
 
             <div className="flex justify-between  pointer-events-none" >
               <div className="leading-2">KELVIN AYO<br /> <div className="text-sm -m-1">6 JUL 23</div> </div>
@@ -236,7 +236,7 @@ const Events = () => {
 
 
 
-          <div  id='events' className="  px-6 py-5 galleria__item z-0 group/card border-white flex flex-col justify-between border-4 border-r-0 overflow-hidden h-full w-[90vw] lg:w-[calc(150vw/5)] relative ">
+          <div  id='events' className="   touch-pan-y px-6 py-5 galleria__item z-0 group/card border-white flex flex-col justify-between border-4 border-r-0 overflow-hidden h-full w-[90vw] lg:w-[calc(150vw/5)] relative ">
 
             <div className="flex justify-between  pointer-events-none" >
               <div className="leading-2">DERIC GRIF<br /> <div className="text-sm -m-1">30 SEP 23</div> </div>
@@ -256,7 +256,7 @@ const Events = () => {
 
 
 
-          <div  id='events' className="  px-6 py-5 galleria__item z-0 group/card border-white flex flex-col justify-between border-4 border-r-0 overflow-hidden h-full w-[90vw] lg:w-[calc(150vw/5)] relative ">
+          <div  id='events' className="   touch-pan-y px-6 py-5 galleria__item z-0 group/card border-white flex flex-col justify-between border-4 border-r-0 overflow-hidden h-full w-[90vw] lg:w-[calc(150vw/5)] relative ">
 
             <div className="flex justify-between  pointer-events-none" >
               <div className="leading-2">Steven Fawne<br /> <div className="text-sm -m-1">3 NOV 23</div> </div>
