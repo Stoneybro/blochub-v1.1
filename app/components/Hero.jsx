@@ -16,11 +16,8 @@ const Hero = () => {
   const bloc=useRef()
   const [size,setSize]=useState({width:'',height:''})
   const [delayPassed, setDelayPassed] = useState(false);
-  const items = document.querySelectorAll(".images");
-  const item =document.querySelectorAll(".image");
-  const twidth=window.innerWidth
-  const theight=window.innerHeight
   useEffect(()=>{
+    const item =document.querySelectorAll(".image");
     const items = document.querySelectorAll(".images");
     items.forEach((item)=>{
       const itemw = item.getBoundingClientRect().x;
