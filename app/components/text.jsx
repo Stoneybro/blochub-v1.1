@@ -1,6 +1,5 @@
 'use client'
-import React, { useEffect,useState, useRef } from 'react'
-import Button from './button'
+import React, { useEffect} from 'react'
 import Image from 'next/image'
 import pic1 from '../../public/pic1.webp'
 import pic2 from '../../public/pic2.webp'
@@ -9,11 +8,8 @@ import pic4 from '../../public/pic4.webp'
 import pic5 from '../../public/pic5.webp'
 
 function MyReactComponent() {
-  const container=useRef(null)
-  const wrapper=useRef(null)
-  useEffect(()=>{
-    
 
+  useEffect(()=>{
     const MathUtil = {
       lerp: (a, b, n) => (1 - n) * a + n * b
   };
@@ -165,9 +161,9 @@ function MyReactComponent() {
   return (
 <div className="h-[150vh] py-16 text-white">
         <div className="h-[60.5%]  lg:h-[57%] relative overflow-hidden cursor-none"  id='events'>
-        <div className="  bg-black   absolute  top-0 h-full w-full   z-[0] cursor-none galleria"   ref={container}  id='events' >
+        <div className="  bg-black   absolute  top-0 h-full w-full   z-[0] cursor-none galleria"  id='events' >
         <div
-        className="flex w-[450vw] lg:w-[150vw] absolute top-0 h-full overflow-hidden touch-none galleria__inner   z-[0] cursor-none"  id='events' ref={wrapper}>
+        className="flex w-[450vw] lg:w-[150vw] absolute top-0 h-full overflow-hidden touch-none galleria__inner   z-[0] cursor-none"  id='events' >
 
 
           <div  id='events' className="  px-6 py-5 galleria__item z-0 group/card border-white flex flex-col justify-between border-4 border-r-0 overflow-hidden h-full w-[90vw] lg:w-[calc(150vw/5)] relative  ">
