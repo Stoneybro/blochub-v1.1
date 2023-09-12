@@ -34,6 +34,7 @@ const Hero = () => {
   }, []);
   useEffect(()=>{
     const item =document.querySelectorAll(".image");
+    const items =document.querySelectorAll(".images");
     const {x,y,e}=useMouse
     if (delayPassed) {
       item.forEach((items)=>{
